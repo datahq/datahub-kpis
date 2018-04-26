@@ -1,10 +1,11 @@
-os: osx
-language: generic
+language: python
+python:
+    - "3.6"
 before_install:
 - openssl aes-256-cbc -K $encrypted_8b2a180d1828_key -iv $encrypted_8b2a180d1828_iv
   -in secrets.tar.enc -out secrets.tar -d
 - tar xvf secrets.tar
 install:
-- pip2 install google-api-python-client==1.6.6
+- pip install google-api-python-client==1.6.6
 script:
-- python2 DataHubKPIs.py
+- python DataHubKPIs.py
