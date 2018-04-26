@@ -2,9 +2,7 @@ os: osx
 language: generic
 before_install:
 - openssl aes-256-cbc -K $encrypted_8b2a180d1828_key -iv $encrypted_8b2a180d1828_iv
-  -in client_secrets.json.enc -out client_secrets.json -d
-- python2 -V
-- pip2 -V
+  -in secrets.tar.enc -out secrets.tar -d
 install:
 - pip2 install google-api-python-client==1.6.6
 script:
