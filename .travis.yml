@@ -3,10 +3,9 @@ language: generic
 before_install:
 - openssl aes-256-cbc -K $encrypted_8b2a180d1828_key -iv $encrypted_8b2a180d1828_iv
   -in client_secrets.json.enc -out client_secrets.json -d
-- sudo easy_install pip
 - python -V
-- pip -V
+- pip2 -V
 install:
-- pip install google-api-python-client==1.6.6
+- pip2 install google-api-python-client==1.6.6
 script:
 - python DataHubKPIs.py
