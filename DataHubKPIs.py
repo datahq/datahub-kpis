@@ -134,7 +134,7 @@ def parse_response(response):
 
             desc = {}
             ret = [desc]
-            
+
             for header, dimension in zip(dimensionHeaders, dimensions):
                 desc[header] = dimension
 
@@ -143,7 +143,7 @@ def parse_response(response):
                 (metricHeader.get('name'), int(value))
                 for metricHeader, value in zip(metricHeaders, values)
             ))
-            
+
             yield ret
 
 
@@ -200,17 +200,17 @@ FUNNEL = [
     ('Total new users in the site',
          nodims(),
          'ga:newUsers'),
-    ('Clicks on "download" from anywhere', 
-         event('outbound', 'click', 'https://datahub.io/download'), 
+    ('Clicks on "download" from anywhere',
+         event('outbound', 'click', 'https://datahub.io/download'),
          'ga:newUsers'),
-    ('CLI downloads (from web)', 
+    ('CLI downloads (from web)',
          event('outbound', 'click', 'https://github.com/datahq/data-cli/releases/download/.+'),
          'ga:newUsers'),
-    ('First run of the CLI', 
+    ('First run of the CLI',
          event('cli', 'first-run', '.*'),
          'ga:newUsers'),
-    ('Total pushes from the CLI', 
-         event('cli', 'push', '.*'), 
+    ('Total pushes from the CLI',
+         event('cli', 'push', '.*'),
          'ga:newUsers'),
     ('Successful pushes from the CLI',
          event('cli', 'push-success', '.*'),
@@ -218,11 +218,11 @@ FUNNEL = [
     ('First pushes from the CLI',
          event('cli', 'push-first', '.*'),
          'ga:newUsers'),
-    ('Visit the showcase after push - method 1', 
-         path('/[^/]+/[^/]+/v/[0-9]+'), 
+    ('Visit the showcase after push - method 1',
+         path('/[^/]+/[^/]+/v/[0-9]+'),
          'count'),
-    ('Visit the showcase after push - method 2', 
-         event('showcase', 'visit', 'cli'), 
+    ('Visit the showcase after push - method 2',
+         event('showcase', 'visit', 'cli'),
          'count'),
 ]
 
@@ -247,14 +247,15 @@ def extract_funnel(rows):
                 elif met == 'count':
                     ret.setdefault(title, 0)
                     ret[title] += 1
-            
+
     return sorted(list(ret.items()))
 
 
 # In[78]:
 
-
+print('[1]: Initializing analytics reporting')
 analytics = initialize_analyticsreporting()
+print('[2]: Fetching data from GA')
 response = itertools.chain(*(
     parse_response(r(analytics))
     for r in [
@@ -263,9 +264,11 @@ response = itertools.chain(*(
         get_all_new_users,
     ]
 ))
+print('[3]: Received response from GA; now extracting funnel')
 funnel = extract_funnel(response)
+print('[4]: Done. Now getting NPM stats')
 npm_stats = get_npm_stats()
 funnel.append(npm_stats)
+print('[5]: NPM stats fetched and appended into funnels list. Done everything! You can see results below:')
 for t, a in funnel:
     print('%10d - %s' % (a, t))
-
