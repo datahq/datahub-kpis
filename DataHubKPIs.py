@@ -5,6 +5,8 @@
 
 
 import argparse
+import json
+import datetime as DT
 
 from apiclient.discovery import build
 import httplib2
@@ -58,8 +60,11 @@ def initialize_analyticsreporting():
 
 # In[32]:
 
+today = DT.date.today()
+week_ago = today - DT.timedelta(days=7)
 
-startDate = 'yesterday'
+startDate = week_ago.strftime('%Y-%m-%d')
+endDate = 'yesterday'
 
 
 # In[33]:
@@ -72,7 +77,7 @@ def get_all_new_users(analytics):
         'reportRequests': [
             {
                 'viewId': VIEW_ID,
-                'dateRanges': [{'startDate': startDate, 'endDate': 'today'}],
+                'dateRanges': [{'startDate': startDate, 'endDate': endDate}],
                 'dimensions': [],
                 'metrics': [{'expression': 'ga:newUsers'}],
             }]
@@ -90,7 +95,7 @@ def get_new_users_event_report(analytics):
         'reportRequests': [
             {
                 'viewId': VIEW_ID,
-                'dateRanges': [{'startDate': startDate, 'endDate': 'today'}],
+                'dateRanges': [{'startDate': startDate, 'endDate': endDate}],
                 'dimensions': [{'name': 'ga:eventCategory'}, {'name': 'ga:eventAction'}, {'name': 'ga:eventLabel'}],
                 'metrics': [{'expression': 'ga:newUsers'}],
             }]
@@ -108,7 +113,7 @@ def get_all_pages(analytics):
         'reportRequests': [
             {
                 'viewId': VIEW_ID,
-                'dateRanges': [{'startDate': startDate, 'endDate': 'today'}],
+                'dateRanges': [{'startDate': startDate, 'endDate': endDate}],
                 'dimensions': [{'name': 'ga:pagePath'}],
                 'metrics': [],
             }]
@@ -185,7 +190,6 @@ def nodims():
 # In[75]:
 
 
-import json
 def get_npm_stats():
     h = httplib2.Http('.cache')
     resp, content = h.request('https://api.npmjs.org/downloads/point/last-week/data-cli', 'GET')
