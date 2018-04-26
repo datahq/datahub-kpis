@@ -5,8 +5,9 @@ before_install:
   -in client_secrets.json.enc -out client_secrets.json -d
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew upgrade python; fi
-- python -V
+- python3 -V
+- pip3 -V
 install:
-- pip install google-api-python-client==1.6.6
+- pip3 install google-api-python-client==1.6.6
 script:
-- python DataHubKPIs.py
+- python3 DataHubKPIs.py
