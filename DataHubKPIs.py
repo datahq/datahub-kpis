@@ -7,6 +7,7 @@
 import argparse
 import json
 import datetime as DT
+import csv
 
 from apiclient.discovery import build
 import httplib2
@@ -56,15 +57,6 @@ def initialize_analyticsreporting():
     analytics = build('analytics', 'v4', http=http, discoveryServiceUrl=DISCOVERY_URI)
 
     return analytics
-
-
-# In[32]:
-
-today = DT.date.today()
-week_ago = today - DT.timedelta(days=7)
-
-startDate = week_ago.strftime('%Y-%m-%d')
-endDate = 'yesterday'
 
 
 # In[33]:
@@ -192,13 +184,12 @@ def nodims():
 
 def get_npm_stats():
     h = httplib2.Http('.cache')
-    resp, content = h.request('https://api.npmjs.org/downloads/point/last-week/data-cli', 'GET')
+    resp, content = h.request(f'https://api.npmjs.org/downloads/point/{startDate}:{endDate}/data-cli', 'GET')
     dict_content = json.loads(content)
-    return ('99 - NPM installs', dict_content['downloads'])
+    return ('** - NPM installs', dict_content['downloads'])
 
 
 # In[76]:
-
 
 FUNNEL = [
     ('Total new users in the site',
@@ -259,20 +250,57 @@ def extract_funnel(rows):
 
 print('[1]: Initializing analytics reporting')
 analytics = initialize_analyticsreporting()
-print('[2]: Fetching data from GA')
-response = itertools.chain(*(
-    parse_response(r(analytics))
-    for r in [
-        get_new_users_event_report,
-        get_all_pages,
-        get_all_new_users,
-    ]
-))
-print('[3]: Received response from GA; now extracting funnel')
-funnel = extract_funnel(response)
-print('[4]: Done. Now getting NPM stats')
-npm_stats = get_npm_stats()
-funnel.append(npm_stats)
-print('[5]: NPM stats fetched and appended into funnels list. Done everything! You can see results below:')
-for t, a in funnel:
-    print('%10d - %s' % (a, t))
+today = DT.date.today()
+initial = today - DT.timedelta(days=7)
+for num in range(7):
+    startDate = initial.strftime('%Y-%m-%d')
+    print(startDate)
+    endDate = startDate
+    initial += DT.timedelta(days=1)
+
+    print('[2]: Fetching data from GA')
+    response = itertools.chain(*(
+        parse_response(r(analytics))
+        for r in [
+            get_new_users_event_report,
+            get_all_pages,
+            get_all_new_users,
+        ]
+    ))
+    print('[3]: Received response from GA; now extracting funnel')
+    funnel = extract_funnel(response)
+    print('[4]: Done. Now getting NPM stats')
+    npm_stats = get_npm_stats()
+    funnel.append(npm_stats)
+    print('[5]: NPM stats fetched and appended into funnels list. Done everything! You can see results below:')
+    with open('data.csv', 'a', newline='') as csvfile:
+        writer = csv.writer(csvfile, delimiter=',')
+        row = [''] * 12
+        row[0] = startDate
+        downloadsFromWeb = 0
+        for t, a in funnel:
+            if 'Total new users' in t:
+                row[1] = a
+            elif 'Clicks on "download"' in t:
+                row[2] = a
+            elif 'CLI downloads (from web)' in t:
+                downloadsFromWeb = a
+                row[3] = a
+            elif 'NPM installs' in t:
+                totalDownloads = downloadsFromWeb + a
+                row[4] = a
+                row[5] = totalDownloads
+            elif 'First run of the CLI' in t:
+                row[6] = a
+            elif 'Total pushes from the CLI' in t:
+                row[7] = a
+            elif 'Successful pushes from the CLI' in t:
+                row[8] = a
+            elif 'First pushes from the CLI' in t:
+                row[9] = a
+            elif 'Visit the showcase after push - method 1' in t:
+                row[10] = a
+            elif 'Visit the showcase after push - method 2' in t:
+                row[11] = a
+            print('%10d - %s' % (a, t))
+        writer.writerow(row)
