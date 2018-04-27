@@ -195,7 +195,7 @@ FUNNEL = [
     ('Total new users in the site',
          nodims(),
          'ga:newUsers'),
-    ('Clicks on "download" from anywhere',
+    ('Clicks on download from anywhere',
          event('outbound', 'click', 'https://datahub.io/download'),
          'ga:newUsers'),
     ('CLI downloads (from web)',
@@ -281,7 +281,7 @@ for num in range(7):
         for t, a in funnel:
             if 'Total new users' in t:
                 row[1] = a
-            elif 'Clicks on "download"' in t:
+            elif 'Clicks on download' in t:
                 row[2] = a
             elif 'CLI downloads (from web)' in t:
                 downloadsFromWeb = a
