@@ -1,0 +1,247 @@
+{
+  "name": "datahub-kpis",
+  "title": "DataHub KPIs",
+  "resources": [
+    {
+      "path": "daily.csv",
+      "pathType": "local",
+      "name": "daily",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "ISO-8859-1",
+      "dialect": {
+        "delimiter": ",",
+        "quoteChar": "\""
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "date",
+            "type": "date",
+            "format": "default"
+          },
+          {
+            "name": "Total new users in the site",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "Clicks on \"download\" from anywhere",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "CLI downloads (from web)",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "CLI downloads (from NPM)",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "Total CLI downloads",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "First run of the CLI",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "Total pushes from the CLI",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "Successful pushes from the CLI",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "First pushes from the CLI",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "Visit the showcase after push - method 1",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "Visit the showcase after push - method 2",
+            "type": "string",
+            "format": "default"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    }
+  ],
+  "readme": "# DataHub KPIs\n\n[![Build Status](https://travis-ci.org/datahq/datahub-kpis.svg?branch=master)](https://travis-ci.org/datahq/datahub-kpis)\n\nKey performance indicators for the DataHub project.\n\n## What does it do?\n\nThe script:\n- fetches reports from the Google Analytics;\n- fetches stats from NPM for `data-cli` package;\n- processes data and prints out KPIs.\n\n## Travis-CI and the schedule\n\nThe script is run on weekly basis on Travis-CI. For more information see `.travis.yml` file or visit current build page - https://travis-ci.org/datahq/datahub-kpis.\n\n## Output\n\nBelow is the sample result:\n\n```\n1554 - 00 - Total new users in the site\n  30 - 01 - Clicks on \"download\" from anywhere\n   6 - 02 - CLI downloads (from web)\n   1 - 03 - First run of the CLI\n   2 - 07 - Visit the showcase after push - method 1\n 186 - 99 - NPM installs\n```\n",
+  "description": "# DataHub KPIs\n\n[![Build Status](https://travis-ci.org/datahq/datahub-kpis.svg?branch=master)](https",
+  "licenses": [
+    {
+      "name": "ODC-PDDL",
+      "path": "http://opendatacommons.org/licenses/pddl/",
+      "title": "Open Data Commons Public Domain Dedication and License"
+    }
+  ],
+  "views": [
+    {
+      "name": "downloads-page-clicks",
+      "title": "Clicks on 'Download' link (page) by new users",
+      "resources": [
+        {
+          "name": "daily",
+          "transform": [
+            {
+              "type": "formula",
+              "expressions": [
+                "data['Clicks on \"download\" from anywhere'] / data['Total new users in the site'] * 100"
+              ],
+              "asFields": [
+                "clicks"
+              ]
+            }
+          ]
+        }
+      ],
+      "specType": "simple",
+      "spec": {
+        "type": "line",
+        "group": "date",
+        "series": [
+          "clicks"
+        ],
+        "ySuffix": " %"
+      }
+    },
+    {
+      "name": "cli-downloads",
+      "title": "CLI downloads by whom clicked on 'Download' link (page)",
+      "resources": [
+        {
+          "name": "daily",
+          "transform": [
+            {
+              "type": "formula",
+              "expressions": [
+                "data['CLI downloads (from web)'] / data['Clicks on \"download\" from anywhere'] * 100",
+                "data['CLI downloads (from NPM)'] / data['Clicks on \"download\" from anywhere'] * 100",
+                "data['Total CLI downloads'] / data['Clicks on \"download\" from anywhere'] * 100"
+              ],
+              "asFields": [
+                "via web (download page)",
+                "via NPM",
+                "total"
+              ]
+            }
+          ]
+        }
+      ],
+      "specType": "simple",
+      "spec": {
+        "type": "line",
+        "group": "date",
+        "series": [
+          "via web (download page)",
+          "via NPM",
+          "total"
+        ],
+        "ySuffix": " %"
+      }
+    },
+    {
+      "name": "first-run-of-cli",
+      "title": "First run of the CLI by users who downloaded the tool",
+      "resources": [
+        {
+          "name": "daily",
+          "transform": [
+            {
+              "type": "formula",
+              "expressions": [
+                "data['First run of the CLI'] / data['Total CLI downloads'] * 100"
+              ],
+              "asFields": [
+                "first run"
+              ]
+            }
+          ]
+        }
+      ],
+      "specType": "simple",
+      "spec": {
+        "type": "line",
+        "group": "date",
+        "series": [
+          "first run"
+        ],
+        "ySuffix": " %"
+      }
+    },
+    {
+      "name": "total-pushes",
+      "title": "Total pushes / first run",
+      "resources": [
+        {
+          "name": "daily",
+          "transform": [
+            {
+              "type": "formula",
+              "expressions": [
+                "data['Total pushes from the CLI'] / data['First run of the CLI'] * 100"
+              ],
+              "asFields": [
+                "total pushes / first run"
+              ]
+            }
+          ]
+        }
+      ],
+      "specType": "simple",
+      "spec": {
+        "type": "line",
+        "group": "date",
+        "series": [
+          "total pushes / first run"
+        ],
+        "ySuffix": " %"
+      }
+    },
+    {
+      "name": "successful-pushes",
+      "title": "Successful / total pushes",
+      "resources": [
+        {
+          "name": "daily",
+          "transform": [
+            {
+              "type": "formula",
+              "expressions": [
+                "data['Successful pushes from the CLI'] / data['Total pushes from the CLI'] * 100"
+              ],
+              "asFields": [
+                "Successful / total pushes"
+              ]
+            }
+          ]
+        }
+      ],
+      "specType": "simple",
+      "spec": {
+        "type": "line",
+        "group": "date",
+        "series": [
+          "Successful / total pushes"
+        ],
+        "ySuffix": " %"
+      }
+    }
+  ]
+}
