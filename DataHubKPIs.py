@@ -252,6 +252,8 @@ print('[1]: Initializing analytics reporting')
 analytics = initialize_analyticsreporting()
 today = DT.date.today()
 initial = today - DT.timedelta(days=7)
+weekly_row = [0] * 12
+weekly_row[0] = initial.strftime('%Y-%m-%d')
 for num in range(7):
     startDate = initial.strftime('%Y-%m-%d')
     print(startDate)
@@ -273,7 +275,7 @@ for num in range(7):
     npm_stats = get_npm_stats()
     funnel.append(npm_stats)
     print('[5]: NPM stats fetched and appended into funnels list. Done everything! You can see results below:')
-    with open('data.csv', 'a', newline='') as csvfile:
+    with open('daily.csv', 'a', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
         row = [''] * 12
         row[0] = startDate
@@ -281,26 +283,50 @@ for num in range(7):
         for t, a in funnel:
             if 'Total new users' in t:
                 row[1] = a
+                if a:
+                    weekly_row[1] += a
             elif 'Clicks on download' in t:
                 row[2] = a
+                if a:
+                    weekly_row[2] += a
             elif 'CLI downloads (from web)' in t:
                 downloadsFromWeb = a
                 row[3] = a
+                if a:
+                    weekly_row[3] += a
             elif 'NPM installs' in t:
                 totalDownloads = downloadsFromWeb + a
                 row[4] = a
                 row[5] = totalDownloads
+                weekly_row[4] += a
+                weekly_row[5] += a
             elif 'First run of the CLI' in t:
                 row[6] = a
+                if a:
+                    weekly_row[6] += a
             elif 'Total pushes from the CLI' in t:
                 row[7] = a
+                if a:
+                    weekly_row[7] += a
             elif 'Successful pushes from the CLI' in t:
                 row[8] = a
+                if a:
+                    weekly_row[8] += a
             elif 'First pushes from the CLI' in t:
                 row[9] = a
+                if a:
+                    weekly_row[9] += a
             elif 'Visit the showcase after push - method 1' in t:
                 row[10] = a
+                if a:
+                    weekly_row[10] += a
             elif 'Visit the showcase after push - method 2' in t:
                 row[11] = a
+                if a:
+                    weekly_row[11] += a
             print('%10d - %s' % (a, t))
         writer.writerow(row)
+# Record weekly data:
+with open('weekly.csv', 'a', newline='') as weekly:
+    writer = csv.writer(weekly, delimiter=',')
+    writer.writerow(weekly_row)
