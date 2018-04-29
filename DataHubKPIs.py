@@ -330,3 +330,20 @@ for num in range(7):
 with open('weekly.csv', 'a', newline='') as weekly:
     writer = csv.writer(weekly, delimiter=',')
     writer.writerow(weekly_row)
+
+# Script for converting daily to weekly:
+# with open('daily.csv', 'r') as daily:
+#     reader=csv.reader(daily)
+#     rows=[r for r in reader]
+#     with open('weekly.csv', 'a', newline='') as weekly:
+#         writer = csv.writer(weekly, delimiter=',')
+#         for i in range(16):
+#             weekly_row = [0] * 12
+#             for j in range(1,8):
+#                 day = rows[i*7+j]
+#                 if j == 1:
+#                     weekly_row[0] = day[0]
+#                 for k in range(1,12):
+#                     if day[k]:
+#                         weekly_row[k] += int(day[k])
+#             writer.writerow(weekly_row)
