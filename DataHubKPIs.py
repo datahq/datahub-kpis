@@ -251,10 +251,10 @@ def extract_funnel(rows):
 print('[1]: Initializing analytics reporting')
 analytics = initialize_analyticsreporting()
 today = DT.date.today()
-initial = today - DT.timedelta(days=7)
-weekly_row = [0] * 12
-weekly_row[0] = initial.strftime('%Y-%m-%d')
-for num in range(7):
+# [1] This can be modified to collect data for several days
+# eg, "days=7" to get data for the last week:
+initial = today - DT.timedelta(days=1)
+for num in range(1): # Use this along with [1] - change range accordingly.
     startDate = initial.strftime('%Y-%m-%d')
     print(startDate)
     endDate = startDate
@@ -277,71 +277,63 @@ for num in range(7):
     print('[5]: NPM stats fetched and appended into funnels list. Done everything! You can see results below:')
     with open('daily.csv', 'a', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
-        row = [''] * 12
+        row = [0] * 12
         row[0] = startDate
         downloadsFromWeb = 0
         for t, a in funnel:
             if 'Total new users' in t:
                 row[1] = a
-                if a:
-                    weekly_row[1] += a
             elif 'Clicks on download' in t:
                 row[2] = a
-                if a:
-                    weekly_row[2] += a
             elif 'CLI downloads (from web)' in t:
                 downloadsFromWeb = a
                 row[3] = a
-                if a:
-                    weekly_row[3] += a
             elif 'NPM installs' in t:
                 totalDownloads = downloadsFromWeb + a
                 row[4] = a
                 row[5] = totalDownloads
-                weekly_row[4] += a
-                weekly_row[5] += a
             elif 'First run of the CLI' in t:
                 row[6] = a
-                if a:
-                    weekly_row[6] += a
             elif 'Total pushes from the CLI' in t:
                 row[7] = a
-                if a:
-                    weekly_row[7] += a
             elif 'Successful pushes from the CLI' in t:
                 row[8] = a
-                if a:
-                    weekly_row[8] += a
             elif 'First pushes from the CLI' in t:
                 row[9] = a
-                if a:
-                    weekly_row[9] += a
             elif 'Visit the showcase after push - method 1' in t:
                 row[10] = a
-                if a:
-                    weekly_row[10] += a
             elif 'Visit the showcase after push - method 2' in t:
                 row[11] = a
-                if a:
-                    weekly_row[11] += a
             print('%10d - %s' % (a, t))
         writer.writerow(row)
-# Record weekly data:
-with open('weekly.csv', 'a', newline='') as weekly:
-    writer = csv.writer(weekly, delimiter=',')
-    writer.writerow(weekly_row)
 
-# Script for converting daily to weekly:
+# Script for converting daily to weekly (last week):
+with open('daily.csv', 'r') as daily:
+    reader=csv.reader(daily)
+    rows=[r for r in reader]
+    with open('weekly.csv', 'a', newline='') as weekly:
+        writer = csv.writer(weekly, delimiter=',')
+        weekly_row = [0] * 12
+        for i in range(7):
+            day = rows[len(rows)-1-i]
+            if i == 0:
+                weekly_row[0] = day[0]
+            for k in range(1,12):
+                if day[k]:
+                    weekly_row[k] += int(day[k])
+        writer.writerow(weekly_row)
+
+# Script for converting daily to weekly (several weeks):
 # with open('daily.csv', 'r') as daily:
 #     reader=csv.reader(daily)
 #     rows=[r for r in reader]
 #     with open('weekly.csv', 'a', newline='') as weekly:
 #         writer = csv.writer(weekly, delimiter=',')
-#         for i in range(16):
+#         for i in range(113):
 #             weekly_row = [0] * 12
 #             for j in range(1,8):
-#                 day = rows[i*7+j]
-#                 if j == 1:
+#                 day = rows[i+j]
+#                 if j == 7:
 #                     weekly_row[0] = day[0]
 #                 for k in range(1,12):
 #                     if day[k]:
