@@ -1,4 +1,5 @@
 language: python
+sudo: enabled
 python:
     - "3.6"
 before_install:
@@ -9,3 +10,19 @@ install:
 - pip install google-api-python-client==1.6.6
 script:
 - python DataHubKPIs.py
+- npm install -g data-cli
+- data push
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  keep-history: true
+  on:
+    branch: master
+  target-branch: master
+
+env:
+  global:
+    id: examples
+    username: examples
+  TRAVIS_SECURE_ENV_VARS: true
