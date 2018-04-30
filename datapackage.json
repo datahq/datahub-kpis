@@ -172,6 +172,39 @@
   ],
   "views": [
     {
+      "name": "deploy-funnel",
+      "title": "Deploy funnel KPIs (total new users number is divided by 40)",
+      "resources": [
+        {
+          "name": "weekly",
+          "transform": [
+            {
+              "type": "filter",
+              "expression": "Date.parse(data['date']) > Date.parse('2018-03-26')"
+            },
+            {
+              "type": "formula",
+              "expressions": ["data['Total new users in the site'] / 40"],
+              "asFields": ["Total new users x 40"]
+            }
+          ]
+        }
+      ],
+      "specType": "simple",
+      "spec": {
+        "type": "line",
+        "group": "date",
+        "series": [
+          "Total new users x 40",
+          "Clicks on download from anywhere",
+          "CLI downloads (from web)",
+          "First run of the CLI",
+          "First pushes from the CLI",
+          "Visit the showcase after push - method 1"
+        ]
+      }
+    },
+    {
       "name": "new-users-weekly",
       "title": "New users weekly",
       "resources": ["weekly"],
@@ -186,10 +219,10 @@
     },
     {
       "name": "downloads-page-clicks",
-      "title": "Clicks on 'Download' link (page) by new users - daily data",
+      "title": "Clicks on 'Download' link (page) by new users",
       "resources": [
         {
-          "name": "daily",
+          "name": "weekly",
           "transform": [
             {
               "type": "filter",
@@ -219,10 +252,10 @@
     },
     {
       "name": "cli-downloads",
-      "title": "CLI downloads by whom clicked on 'Download' link (page)  - daily data",
+      "title": "CLI downloads by whom clicked on 'Download' link (page)",
       "resources": [
         {
-          "name": "daily",
+          "name": "weekly",
           "transform": [
             {
               "type": "filter",
@@ -231,14 +264,10 @@
             {
               "type": "formula",
               "expressions": [
-                "data['CLI downloads (from web)'] / data['Clicks on download from anywhere'] * 100",
-                "data['CLI downloads (from NPM)'] / data['Clicks on download from anywhere'] * 100",
-                "data['Total CLI downloads'] / data['Clicks on download from anywhere'] * 100"
+                "data['CLI downloads (from web)'] / data['Clicks on download from anywhere'] * 100"
               ],
               "asFields": [
-                "via web (download page)",
-                "via NPM",
-                "total"
+                "via web (download page)"
               ]
             }
           ]
@@ -249,19 +278,17 @@
         "type": "line",
         "group": "date",
         "series": [
-          "via web (download page)",
-          "via NPM",
-          "total"
+          "via web (download page)"
         ],
         "ySuffix": " %"
       }
     },
     {
       "name": "first-run-of-cli",
-      "title": "First run of the CLI by users who downloaded the tool - daily data",
+      "title": "First run of the CLI by users who downloaded the tool",
       "resources": [
         {
-          "name": "daily",
+          "name": "weekly",
           "transform": [
             {
               "type": "filter",
@@ -290,34 +317,11 @@
       }
     },
     {
-      "name": "total-pushes",
-      "title": "Total pushes - daily data",
-      "resources": [
-        {
-          "name": "daily",
-          "transform": [
-            {
-              "type": "filter",
-              "expression": "Date.parse(data['date']) > Date.parse('2018-03-16')"
-            }
-          ]
-        }
-      ],
-      "specType": "simple",
-      "spec": {
-        "type": "bar",
-        "group": "date",
-        "series": [
-          "Total pushes from the CLI"
-        ]
-      }
-    },
-    {
       "name": "successful-pushes",
-      "title": "Successful / total pushes - daily data",
+      "title": "Successful / total pushes",
       "resources": [
         {
-          "name": "daily",
+          "name": "weekly",
           "transform": [
             {
               "type": "filter",
