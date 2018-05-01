@@ -214,7 +214,7 @@ FUNNEL = [
          event('cli', 'push-first', '.*'),
          'ga:newUsers'),
     ('Visit the showcase after push - method 1',
-         path('/[^/]+/[^/]+/v/[0-9]+'),
+         path('/(?!core|zelima|Mikanebu|anuveyatsu|test|examples|Branko-Dj|tanvirchahal|adamkariv|rufuspollock\b)\b\w+/[^/]+/v/[0-9]+'),
          'count'),
     ('Visit the showcase after push - method 2',
          event('showcase', 'visit', 'cli'),
