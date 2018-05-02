@@ -462,6 +462,24 @@
         ],
         "ySuffix": " %"
       }
+    },
+    {
+      "name": "premium-data-offer-funnel-daily",
+      "title": "Premium data offer funnel (daily)",
+      "resources": ["premium-data-funnel-daily"],
+      "specType": "simple",
+      "spec": {
+        "type": "line",
+        "group": "date",
+        "series": [
+          "incoming user",
+          "interacting user",
+          "heavily interacting user",
+          "interested user",
+          "engaged user",
+          "signed up user"
+        ]
+      }
     }
   ]
 }
