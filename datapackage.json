@@ -3,7 +3,7 @@
   "title": "DataHub KPIs",
   "resources": [
     {
-      "path": "deploy-funnel-daily.csv",
+      "path": "data/deploy-funnel-daily.csv",
       "pathType": "local",
       "name": "deploy-funnel-daily",
       "format": "csv",
@@ -82,7 +82,7 @@
       }
     },
     {
-      "path": "deploy-funnel-weekly.csv",
+      "path": "data/deploy-funnel-weekly.csv",
       "pathType": "local",
       "name": "deploy-funnel-weekly",
       "format": "csv",
@@ -159,9 +159,117 @@
           ""
         ]
       }
+    },
+    {
+      "path": "data/premium-data-funnel-daily.csv",
+      "pathType": "local",
+      "name": "premium-data-funnel-daily",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "ISO-8859-1",
+      "dialect": {
+        "delimiter": ",",
+        "quoteChar": "\""
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "date",
+            "type": "date",
+            "format": "default"
+          },
+          {
+            "name": "incoming user",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "interacting user",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "heavily interacting user",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "interested user",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "engaged user",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "signed up user",
+            "type": "integer",
+            "format": "default"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
+      "path": "data/premium-data-funnel-weekly.csv",
+      "pathType": "local",
+      "name": "premium-data-funnel-weekly",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "ISO-8859-1",
+      "dialect": {
+        "delimiter": ",",
+        "quoteChar": "\""
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "date",
+            "type": "any",
+            "format": "default"
+          },
+          {
+            "name": "incoming user",
+            "type": "any",
+            "format": "default"
+          },
+          {
+            "name": "interacting user",
+            "type": "any",
+            "format": "default"
+          },
+          {
+            "name": "heavily interacting user",
+            "type": "any",
+            "format": "default"
+          },
+          {
+            "name": "interested user",
+            "type": "any",
+            "format": "default"
+          },
+          {
+            "name": "engaged user",
+            "type": "any",
+            "format": "default"
+          },
+          {
+            "name": "signed up user",
+            "type": "any",
+            "format": "default"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
     }
   ],
-  "readme": "# DataHub KPIs\n\n[![Build Status](https://travis-ci.org/datahq/datahub-kpis.svg?branch=master)](https://travis-ci.org/datahq/datahub-kpis)\n\nKey performance indicators for the DataHub project.\n\n## What does it do?\n\nThe script:\n- fetches reports from the Google Analytics;\n- fetches stats from NPM for `data-cli` package;\n- processes data and prints out KPIs.\n\n## Travis-CI and the schedule\n\nThe script is run on weekly basis on Travis-CI. For more information see `.travis.yml` file or visit current build page - https://travis-ci.org/datahq/datahub-kpis.\n\n## Output\n\nBelow is the sample result:\n\n```\n1554 - 00 - Total new users in the site\n  30 - 01 - Clicks on download from anywhere\n   6 - 02 - CLI downloads (from web)\n   1 - 03 - First run of the CLI\n   2 - 07 - Visit the showcase after push - method 1\n 186 - 99 - NPM installs\n```\n",
+  "readme": "# DataHub KPIs\n\n[![Build Status](https://travis-ci.org/datahq/datahub-kpis.svg?branch=master)](https://travis-ci.org/datahq/datahub-kpis)\n\nKey performance indicators for the DataHub project.\n\n## What does it do?\n\nThe script:\n- fetches reports from the Google Analytics;\n- fetches stats from NPM for `data-cli` package;\n- processes data and prints out KPIs.\n\n## Travis-CI and the schedule\n\nThe script is run on weekly basis on Travis-CI. For more information see `.travis.yml` file or visit current build page - https://travis-ci.org/datahq/datahub-kpis.\n\n## Output\n\nBelow is the sample result:\n\n```\n1554 - 00 - Total new users in the site\n  30 - 01 - Clicks on \"download\" from anywhere\n   6 - 02 - CLI downloads (from web)\n   1 - 03 - First run of the CLI\n   2 - 07 - Visit the showcase after push - method 1\n 186 - 99 - NPM installs\n```\n",
   "description": "# DataHub KPIs\n\n[![Build Status](https://travis-ci.org/datahq/datahub-kpis.svg?branch=master)](https",
   "licenses": [
     {
@@ -184,8 +292,12 @@
             },
             {
               "type": "formula",
-              "expressions": ["data['Total new users in the site'] / 40"],
-              "asFields": ["Total new users x 40"]
+              "expressions": [
+                "data['Total new users in the site'] / 40"
+              ],
+              "asFields": [
+                "Total new users x 40"
+              ]
             }
           ]
         }
@@ -207,7 +319,9 @@
     {
       "name": "new-users-weekly",
       "title": "New users weekly",
-      "resources": ["deploy-funnel-weekly"],
+      "resources": [
+        "deploy-funnel-weekly"
+      ],
       "specType": "simple",
       "spec": {
         "type": "line",

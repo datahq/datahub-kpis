@@ -9,7 +9,8 @@ before_install:
 install:
 - pip install google-api-python-client==1.6.6
 script:
-- python deploy-funnel.py
+- python scripts/deploy-funnel.py
+- python scripts/premium-data-funnel.py
 - npm install -g data-cli
 - data push
 deploy:
