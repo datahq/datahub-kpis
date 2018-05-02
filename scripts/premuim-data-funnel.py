@@ -161,6 +161,6 @@ def interested_user():
 
 interested_user()
 
-with open('premium-data-funnel-daily.csv', 'a', newline='') as csvfile:
+with open('data/premium-data-funnel-daily.csv', 'a', newline='') as csvfile:
     writer = csv.writer(csvfile, delimiter=',')
     writer.writerow(row)
