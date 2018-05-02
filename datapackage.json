@@ -3,9 +3,9 @@
   "title": "DataHub KPIs",
   "resources": [
     {
-      "path": "daily.csv",
+      "path": "deploy-funnel-daily.csv",
       "pathType": "local",
-      "name": "daily",
+      "name": "deploy-funnel-daily",
       "format": "csv",
       "mediatype": "text/csv",
       "encoding": "ISO-8859-1",
@@ -82,9 +82,9 @@
       }
     },
     {
-      "path": "weekly.csv",
+      "path": "deploy-funnel-weekly.csv",
       "pathType": "local",
-      "name": "weekly",
+      "name": "deploy-funnel-weekly",
       "format": "csv",
       "mediatype": "text/csv",
       "encoding": "ISO-8859-1",
@@ -176,7 +176,7 @@
       "title": "Deploy funnel KPIs (total new users number is divided by 40)",
       "resources": [
         {
-          "name": "weekly",
+          "name": "deploy-funnel-weekly",
           "transform": [
             {
               "type": "filter",
@@ -207,7 +207,7 @@
     {
       "name": "new-users-weekly",
       "title": "New users weekly",
-      "resources": ["weekly"],
+      "resources": ["deploy-funnel-weekly"],
       "specType": "simple",
       "spec": {
         "type": "line",
@@ -222,7 +222,7 @@
       "title": "Clicks on 'Download' link (page) by new users",
       "resources": [
         {
-          "name": "weekly",
+          "name": "deploy-funnel-weekly",
           "transform": [
             {
               "type": "filter",
@@ -255,7 +255,7 @@
       "title": "CLI downloads by whom clicked on 'Download' link (page)",
       "resources": [
         {
-          "name": "weekly",
+          "name": "deploy-funnel-weekly",
           "transform": [
             {
               "type": "filter",
@@ -288,7 +288,7 @@
       "title": "First run of the CLI by users who downloaded the tool",
       "resources": [
         {
-          "name": "weekly",
+          "name": "deploy-funnel-weekly",
           "transform": [
             {
               "type": "filter",
@@ -321,7 +321,7 @@
       "title": "Successful / total pushes",
       "resources": [
         {
-          "name": "weekly",
+          "name": "deploy-funnel-weekly",
           "transform": [
             {
               "type": "filter",

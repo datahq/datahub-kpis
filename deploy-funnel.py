@@ -275,7 +275,7 @@ for num in range(1): # Use this along with [1] - change range accordingly.
     npm_stats = get_npm_stats()
     funnel.append(npm_stats)
     print('[5]: NPM stats fetched and appended into funnels list. Done everything! You can see results below:')
-    with open('daily.csv', 'a', newline='') as csvfile:
+    with open('deploy-funnel-daily.csv', 'a', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
         row = [0] * 12
         row[0] = startDate
@@ -308,10 +308,10 @@ for num in range(1): # Use this along with [1] - change range accordingly.
         writer.writerow(row)
 
 # Script for converting daily to weekly (last week):
-with open('daily.csv', 'r') as daily:
+with open('deploy-funnel-daily.csv', 'r') as daily:
     reader=csv.reader(daily)
     rows=[r for r in reader]
-    with open('weekly.csv', 'a', newline='') as weekly:
+    with open('deploy-funnel-weekly.csv', 'a', newline='') as weekly:
         writer = csv.writer(weekly, delimiter=',')
         weekly_row = [0] * 12
         for i in range(7):
@@ -324,10 +324,10 @@ with open('daily.csv', 'r') as daily:
         writer.writerow(weekly_row)
 
 # Script for converting daily to weekly (several weeks):
-# with open('daily.csv', 'r') as daily:
+# with open('deploy-funnel-daily.csv', 'r') as daily:
 #     reader=csv.reader(daily)
 #     rows=[r for r in reader]
-#     with open('weekly.csv', 'a', newline='') as weekly:
+#     with open('deploy-funnel-weekly.csv', 'a', newline='') as weekly:
 #         writer = csv.writer(weekly, delimiter=',')
 #         for i in range(113):
 #             weekly_row = [0] * 12
