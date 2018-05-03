@@ -317,21 +317,6 @@
       }
     },
     {
-      "name": "new-users-weekly",
-      "title": "New users weekly",
-      "resources": [
-        "deploy-funnel-weekly"
-      ],
-      "specType": "simple",
-      "spec": {
-        "type": "line",
-        "group": "date",
-        "series": [
-          "Total new users in the site"
-        ]
-      }
-    },
-    {
       "name": "downloads-page-clicks",
       "title": "Clicks on 'Download' link (page) by new users",
       "resources": [
