@@ -23,52 +23,62 @@
           {
             "name": "Total new users in the site",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "User is considered new when it's the first time device or browser loads the website content."
           },
           {
             "name": "Clicks on download from anywhere",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "Clicks on <a> tag that has href attribute equal to '/download' by new users."
           },
           {
             "name": "CLI downloads (from web)",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "Downloads of the CLI regardless which OS by new users."
           },
           {
             "name": "CLI downloads (from NPM)",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "Total downloads from NPM by all users."
           },
           {
             "name": "Total CLI downloads",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "The sum of CLI downloads from the web and NPM."
           },
           {
             "name": "First run of the CLI",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "First run of the CLI by new users."
           },
           {
             "name": "Total pushes from the CLI",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "Total pushes by new users."
           },
           {
             "name": "Successful pushes from the CLI",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "Successful pushes by new users."
           },
           {
             "name": "First pushes from the CLI",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "First pushes by new users."
           },
           {
             "name": "Visit the showcase after push - method 1",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "Visits of the showcase page using the printed URL after successful push."
           },
           {
             "name": "Visit the showcase after push - method 2",
@@ -102,52 +112,62 @@
           {
             "name": "Total new users in the site",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "User is considered new when it's the first time device or browser loads the website content."
           },
           {
             "name": "Clicks on download from anywhere",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "Clicks on <a> tag that has href attribute equal to '/download' by new users."
           },
           {
             "name": "CLI downloads (from web)",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "Downloads of the CLI regardless which OS by new users."
           },
           {
             "name": "CLI downloads (from NPM)",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "Total downloads from NPM by all users."
           },
           {
             "name": "Total CLI downloads",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "The sum of CLI downloads from the web and NPM."
           },
           {
             "name": "First run of the CLI",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "First run of the CLI by new users."
           },
           {
             "name": "Total pushes from the CLI",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "Total pushes by new users."
           },
           {
             "name": "Successful pushes from the CLI",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "Successful pushes by new users."
           },
           {
             "name": "First pushes from the CLI",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "First pushes by new users."
           },
           {
             "name": "Visit the showcase after push - method 1",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "Visits of the showcase page using the printed URL after successful push."
           },
           {
             "name": "Visit the showcase after push - method 2",
@@ -181,32 +201,38 @@
           {
             "name": "incoming user",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "Unique page views of 'core' datasets."
           },
           {
             "name": "interacting user",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "Unique scrolling events on 'core' datasets."
           },
           {
             "name": "heavily interacting user",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "Unique clicking events on 'core' datasets."
           },
           {
             "name": "interested user",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "Unique clicks on 'premium data' banner links."
           },
           {
             "name": "engaged user",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "Number of users who contacted us."
           },
           {
             "name": "signed up user",
             "type": "integer",
-            "format": "default"
+            "format": "default",
+            "description": "Number of users who signed up."
           }
         ],
         "missingValues": [
@@ -235,32 +261,38 @@
           {
             "name": "incoming user",
             "type": "any",
-            "format": "default"
+            "format": "default",
+            "description": "Unique page views of 'core' datasets."
           },
           {
             "name": "interacting user",
             "type": "any",
-            "format": "default"
+            "format": "default",
+            "description": "Unique scrolling events on 'core' datasets."
           },
           {
             "name": "heavily interacting user",
             "type": "any",
-            "format": "default"
+            "format": "default",
+            "description": "Unique clicking events on 'core' datasets."
           },
           {
             "name": "interested user",
             "type": "any",
-            "format": "default"
+            "format": "default",
+            "description": "Unique clicks on 'premium data' banner links."
           },
           {
             "name": "engaged user",
             "type": "any",
-            "format": "default"
+            "format": "default",
+            "description": "Number of users who contacted us."
           },
           {
             "name": "signed up user",
             "type": "any",
-            "format": "default"
+            "format": "default",
+            "description": "Number of users who signed up."
           }
         ],
         "missingValues": [
@@ -281,7 +313,7 @@
   "views": [
     {
       "name": "deploy-funnel",
-      "title": "Deploy funnel KPIs (total new users number is divided by 40)",
+      "title": "Deploy funnel KPIs as ratios of total new users",
       "resources": [
         {
           "name": "deploy-funnel-weekly",
@@ -293,10 +325,18 @@
             {
               "type": "formula",
               "expressions": [
-                "data['Total new users in the site'] / 40"
+                "data['Clicks on download from anywhere'] / data['Total new users in the site']",
+                "data['CLI downloads (from web)'] / data['Total new users in the site']",
+                "data['First run of the CLI'] / data['Total new users in the site']",
+                "data['First pushes from the CLI'] / data['Total new users in the site']",
+                "data['Visit the showcase after push - method 1'] / data['Total new users in the site']"
               ],
               "asFields": [
-                "Total new users x 40"
+                "Clicks on download page",
+                "CLI downloads (web)",
+                "First run",
+                "First push",
+                "Visit showcase after push"
               ]
             }
           ]
@@ -307,12 +347,11 @@
         "type": "line",
         "group": "date",
         "series": [
-          "Total new users x 40",
-          "Clicks on download from anywhere",
-          "CLI downloads (from web)",
-          "First run of the CLI",
-          "First pushes from the CLI",
-          "Visit the showcase after push - method 1"
+          "Clicks on download page",
+          "CLI downloads (web)",
+          "First run",
+          "First push",
+          "Visit showcase after push"
         ]
       }
     },
@@ -358,7 +397,7 @@
           "transform": [
             {
               "type": "filter",
-              "expression": "Date.parse(data['date']) > Date.parse('2018-04-08')"
+              "expression": "Date.parse(data['date']) > Date.parse('2018-04-11')"
             },
             {
               "type": "formula",
@@ -391,12 +430,12 @@
           "transform": [
             {
               "type": "filter",
-              "expression": "Date.parse(data['date']) > Date.parse('2018-04-09')"
+              "expression": "Date.parse(data['date']) > Date.parse('2018-04-15')"
             },
             {
               "type": "formula",
               "expressions": [
-                "data['First run of the CLI'] / data['Total CLI downloads'] * 100"
+                "data['First run of the CLI'] / data['CLI downloads (from web)'] * 100"
               ],
               "asFields": [
                 "first run"
