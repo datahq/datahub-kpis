@@ -230,7 +230,7 @@
           },
           {
             "name": "signed up user",
-            "type": "integer",
+            "type": "number",
             "format": "default",
             "description": "Number of users who signed up."
           }
@@ -255,42 +255,42 @@
         "fields": [
           {
             "name": "date",
-            "type": "any",
+            "type": "date",
             "format": "default"
           },
           {
             "name": "incoming user",
-            "type": "any",
+            "type": "integer",
             "format": "default",
             "description": "Unique page views of 'core' datasets."
           },
           {
             "name": "interacting user",
-            "type": "any",
+            "type": "integer",
             "format": "default",
             "description": "Unique scrolling events on 'core' datasets."
           },
           {
             "name": "heavily interacting user",
-            "type": "any",
+            "type": "integer",
             "format": "default",
             "description": "Unique clicking events on 'core' datasets."
           },
           {
             "name": "interested user",
-            "type": "any",
+            "type": "integer",
             "format": "default",
             "description": "Unique clicks on 'premium data' banner links."
           },
           {
             "name": "engaged user",
-            "type": "any",
+            "type": "integer",
             "format": "default",
             "description": "Number of users who contacted us."
           },
           {
             "name": "signed up user",
-            "type": "any",
+            "type": "number",
             "format": "default",
             "description": "Number of users who signed up."
           }
@@ -488,9 +488,9 @@
       }
     },
     {
-      "name": "premium-data-offer-funnel-daily",
-      "title": "Premium data offer funnel (daily)",
-      "resources": ["premium-data-funnel-daily"],
+      "name": "premium-data-offer-funnel-weekly",
+      "title": "Premium data offer funnel (weekly)",
+      "resources": ["premium-data-funnel-weekly"],
       "specType": "simple",
       "spec": {
         "type": "line",
