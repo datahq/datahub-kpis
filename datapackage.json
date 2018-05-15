@@ -312,7 +312,7 @@
   ],
   "views": [
     {
-      "name": "deploy-funnel",
+      "name": "deploy-funnel-1",
       "title": "Deploy funnel KPIs as ratios of total new users",
       "resources": [
         {
@@ -325,15 +325,47 @@
             {
               "type": "formula",
               "expressions": [
-                "data['Clicks on download from anywhere'] / data['Total new users in the site']",
-                "data['CLI downloads (from web)'] / data['Total new users in the site']",
-                "data['First run of the CLI'] / data['Total new users in the site']",
-                "data['First pushes from the CLI'] / data['Total new users in the site']",
-                "data['Visit the showcase after push - method 1'] / data['Total new users in the site']"
+                "data['Clicks on download from anywhere'] / data['Total new users in the site'] * 100",
+                "data['CLI downloads (from web)'] / data['Total new users in the site'] * 100"
               ],
               "asFields": [
                 "Clicks on download page",
-                "CLI downloads (web)",
+                "CLI downloads (web)"
+              ]
+            }
+          ]
+        }
+      ],
+      "specType": "simple",
+      "spec": {
+        "type": "line",
+        "group": "date",
+        "series": [
+          "Clicks on download page",
+          "CLI downloads (web)"
+        ],
+        "ySuffix": "%"
+      }
+    },
+    {
+      "name": "deploy-funnel-2",
+      "title": "Deploy funnel KPIs as ratios of total new users",
+      "resources": [
+        {
+          "name": "deploy-funnel-weekly",
+          "transform": [
+            {
+              "type": "filter",
+              "expression": "Date.parse(data['date']) > Date.parse('2018-03-26')"
+            },
+            {
+              "type": "formula",
+              "expressions": [
+                "data['First run of the CLI'] / data['Total new users in the site'] * 100",
+                "data['First pushes from the CLI'] / data['Total new users in the site'] * 100",
+                "data['Visit the showcase after push - method 1'] / data['Total new users in the site'] * 100"
+              ],
+              "asFields": [
                 "First run",
                 "First push",
                 "Visit showcase after push"
@@ -347,12 +379,11 @@
         "type": "line",
         "group": "date",
         "series": [
-          "Clicks on download page",
-          "CLI downloads (web)",
           "First run",
           "First push",
           "Visit showcase after push"
-        ]
+        ],
+        "ySuffix": "%"
       }
     },
     {
@@ -489,20 +520,69 @@
     },
     {
       "name": "premium-data-offer-funnel-weekly",
-      "title": "Premium data offer funnel (weekly)",
-      "resources": ["premium-data-funnel-weekly"],
+      "title": "Premium data offer funnel - ratios to 'incoming user' (weekly data)",
+      "resources": [
+        {
+          "name": "premium-data-funnel-weekly",
+          "transform": [
+            {
+              "type": "formula",
+              "expressions": [
+                "data['interacting user'] * 100 / data['incoming user']",
+                "data['heavily interacting user'] * 100 / data['incoming user']",
+                "data['interested user'] * 100 / data['incoming user']"
+              ],
+              "asFields": [
+                "interacting user ratio",
+                "heavily interacting user ratio",
+                "interested user ratio"
+              ]
+            }
+          ]
+        }
+      ],
       "specType": "simple",
       "spec": {
         "type": "line",
         "group": "date",
         "series": [
-          "incoming user",
-          "interacting user",
-          "heavily interacting user",
-          "interested user",
-          "engaged user",
-          "signed up user"
-        ]
+          "interacting user ratio",
+          "heavily interacting user ratio",
+          "interested user ratio"
+        ],
+        "ySuffix": "%"
+      }
+    },
+    {
+      "name": "premium-data-offer-funnel-weekly-2",
+      "title": "Premium data offer funnel - 'engaged' and 'signed up' users ratios to 'interested user' (weekly data)",
+      "resources": [
+        {
+          "name": "premium-data-funnel-weekly",
+          "transform": [
+            {
+              "type": "formula",
+              "expressions": [
+                "data['engaged user'] * 100 / data['interested user']",
+                "data['signed up user'] * 100 / data['interested user']"
+              ],
+              "asFields": [
+                "engaged user ratio",
+                "signed up user ratio"
+              ]
+            }
+          ]
+        }
+      ],
+      "specType": "simple",
+      "spec": {
+        "type": "line",
+        "group": "date",
+        "series": [
+          "engaged user ratio",
+          "signed up user ratio"
+        ],
+        "ySuffix": "%"
       }
     }
   ]
