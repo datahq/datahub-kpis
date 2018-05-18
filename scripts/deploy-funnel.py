@@ -214,7 +214,7 @@ FUNNEL = [
          event('cli', 'push-first', '.*'),
          'ga:newUsers'),
     ('Visit the showcase after push - method 1',
-         path('/(?!core|zelima|Mikanebu|anuveyatsu|test|examples|Branko-Dj|tanvirchahal|adamkariv|rufuspollock\b)\b\w+/[^/]+/v/[0-9]+'),
+         path('/[^/]+/[^/]+/v/[0-9]+'),
          'count'),
     ('Visit the showcase after push - method 2',
          event('showcase', 'visit', 'cli'),
@@ -240,8 +240,10 @@ def extract_funnel(rows):
                     ret.setdefault(title, 0)
                     ret[title] += mets.get(met)
                 elif met == 'count':
-                    ret.setdefault(title, 0)
-                    ret[title] += 1
+                    regexp = re.compile(r'(core|zelima|Mikanebu|anuveyatsu|test|examples|machine-learning|otruja|saad-gh|Branko-Dj|svetozarstojkovic|tanvirchahal|adam\.kariv|rufuspollock\b)')
+                    if not regexp.search(func(dims).group(0)):
+                        ret.setdefault(title, 0)
+                        ret[title] += 1
 
     return sorted(list(ret.items()))
 
