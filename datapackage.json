@@ -466,7 +466,7 @@
             {
               "type": "formula",
               "expressions": [
-                "data['First run of the CLI'] / data['CLI downloads (from web)'] * 100"
+                "data['First run of the CLI'] / data['Total CLI downloads'] * 100"
               ],
               "asFields": [
                 "first run"
