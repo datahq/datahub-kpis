@@ -161,6 +161,19 @@ def interested_user():
 
 interested_user()
 
+def engaged_user():
+    dimensions = []
+    metrics = [{'expression': 'ga:uniqueEvents'}]
+    filters = [
+        {'filters': [{'dimensionName': 'ga:eventCategory', 'expressions': 'Premium data form submissions'}]},
+        {'filters': [{'dimensionName': 'ga:eventAction', 'expressions': 'success'}]},
+    ]
+    response = get_report(analytics, dimensions, metrics, filters)
+    value = print_response(response, 'engaged user')
+    row[5] = value or 0
+
+engaged_user()
+
 with open('data/premium-data-funnel-daily.csv', 'a', newline='\n') as csvfile:
     writer = csv.writer(csvfile, delimiter=',')
     writer.writerow(row)
