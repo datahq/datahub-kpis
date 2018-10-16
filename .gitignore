@@ -3,5 +3,6 @@ client_secrets.json
 .ipynb_checkpoints/
 .cache/
 demo/
+env*
 secrets.tar
 ._client_secrets.json
