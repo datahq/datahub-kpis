@@ -174,7 +174,7 @@ def engaged_user():
 
 engaged_user()
 
-with open('data/premium-data-funnel-daily.csv', 'a', newline='\n') as csvfile:
+with open('data/premium-data-funnel-daily.csv', 'a', newline='') as csvfile:
     writer = csv.writer(csvfile, delimiter=',')
     writer.writerow(row)
 
@@ -182,7 +182,7 @@ with open('data/premium-data-funnel-daily.csv', 'a', newline='\n') as csvfile:
 with open('data/premium-data-funnel-daily.csv', 'r') as daily:
     reader = csv.reader(daily)
     rows = [r for r in reader]
-    with open('data/premium-data-funnel-weekly.csv', 'a', newline='\n') as weekly:
+    with open('data/premium-data-funnel-weekly.csv', 'a', newline='') as weekly:
         writer = csv.writer(weekly, delimiter=',')
         weekly_row = [0] * 7
         for i in range(7):
