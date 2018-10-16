@@ -3,6 +3,126 @@
   "title": "DataHub KPIs",
   "resources": [
     {
+      "path": "data/premium-data-funnel-on-core-showcase-daily.csv",
+      "pathType": "local",
+      "name": "premium-data-funnel-on-core-showcase-daily",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "ISO-8859-1",
+      "dialect": {
+        "delimiter": ",",
+        "quoteChar": "\""
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "date",
+            "type": "date",
+            "format": "default"
+          },
+          {
+            "name": "incoming user",
+            "type": "integer",
+            "format": "default",
+            "description": "Unique page views of 'core' datasets."
+          },
+          {
+            "name": "interacting user",
+            "type": "integer",
+            "format": "default",
+            "description": "Unique scrolling events on 'core' datasets."
+          },
+          {
+            "name": "heavily interacting user",
+            "type": "integer",
+            "format": "default",
+            "description": "Unique clicking events on 'core' datasets."
+          },
+          {
+            "name": "interested user",
+            "type": "integer",
+            "format": "default",
+            "description": "Unique clicks on 'premium data' banner links."
+          },
+          {
+            "name": "engaged user",
+            "type": "integer",
+            "format": "default",
+            "description": "Number of users who contacted us."
+          },
+          {
+            "name": "signed up user",
+            "type": "number",
+            "format": "default",
+            "description": "Number of users who signed up."
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
+      "path": "data/premium-data-funnel-on-core-showcase-weekly.csv",
+      "pathType": "local",
+      "name": "premium-data-funnel-on-core-showcase-weekly",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "ISO-8859-1",
+      "dialect": {
+        "delimiter": ",",
+        "quoteChar": "\""
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "date",
+            "type": "date",
+            "format": "default"
+          },
+          {
+            "name": "incoming user",
+            "type": "integer",
+            "format": "default",
+            "description": "Unique page views of 'core' datasets."
+          },
+          {
+            "name": "interacting user",
+            "type": "integer",
+            "format": "default",
+            "description": "Unique scrolling events on 'core' datasets."
+          },
+          {
+            "name": "heavily interacting user",
+            "type": "integer",
+            "format": "default",
+            "description": "Unique clicking events on 'core' datasets."
+          },
+          {
+            "name": "interested user",
+            "type": "integer",
+            "format": "default",
+            "description": "Unique clicks on 'premium data' banner links."
+          },
+          {
+            "name": "engaged user",
+            "type": "integer",
+            "format": "default",
+            "description": "Number of users who contacted us."
+          },
+          {
+            "name": "signed up user",
+            "type": "number",
+            "format": "default",
+            "description": "Number of users who signed up."
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
       "path": "data/deploy-funnel-daily.csv",
       "pathType": "local",
       "name": "deploy-funnel-daily",
@@ -179,126 +299,6 @@
           ""
         ]
       }
-    },
-    {
-      "path": "data/premium-data-funnel-daily.csv",
-      "pathType": "local",
-      "name": "premium-data-funnel-daily",
-      "format": "csv",
-      "mediatype": "text/csv",
-      "encoding": "ISO-8859-1",
-      "dialect": {
-        "delimiter": ",",
-        "quoteChar": "\""
-      },
-      "schema": {
-        "fields": [
-          {
-            "name": "date",
-            "type": "date",
-            "format": "default"
-          },
-          {
-            "name": "incoming user",
-            "type": "integer",
-            "format": "default",
-            "description": "Unique page views of 'core' datasets."
-          },
-          {
-            "name": "interacting user",
-            "type": "integer",
-            "format": "default",
-            "description": "Unique scrolling events on 'core' datasets."
-          },
-          {
-            "name": "heavily interacting user",
-            "type": "integer",
-            "format": "default",
-            "description": "Unique clicking events on 'core' datasets."
-          },
-          {
-            "name": "interested user",
-            "type": "integer",
-            "format": "default",
-            "description": "Unique clicks on 'premium data' banner links."
-          },
-          {
-            "name": "engaged user",
-            "type": "integer",
-            "format": "default",
-            "description": "Number of users who contacted us."
-          },
-          {
-            "name": "signed up user",
-            "type": "number",
-            "format": "default",
-            "description": "Number of users who signed up."
-          }
-        ],
-        "missingValues": [
-          ""
-        ]
-      }
-    },
-    {
-      "path": "data/premium-data-funnel-weekly.csv",
-      "pathType": "local",
-      "name": "premium-data-funnel-weekly",
-      "format": "csv",
-      "mediatype": "text/csv",
-      "encoding": "ISO-8859-1",
-      "dialect": {
-        "delimiter": ",",
-        "quoteChar": "\""
-      },
-      "schema": {
-        "fields": [
-          {
-            "name": "date",
-            "type": "date",
-            "format": "default"
-          },
-          {
-            "name": "incoming user",
-            "type": "integer",
-            "format": "default",
-            "description": "Unique page views of 'core' datasets."
-          },
-          {
-            "name": "interacting user",
-            "type": "integer",
-            "format": "default",
-            "description": "Unique scrolling events on 'core' datasets."
-          },
-          {
-            "name": "heavily interacting user",
-            "type": "integer",
-            "format": "default",
-            "description": "Unique clicking events on 'core' datasets."
-          },
-          {
-            "name": "interested user",
-            "type": "integer",
-            "format": "default",
-            "description": "Unique clicks on 'premium data' banner links."
-          },
-          {
-            "name": "engaged user",
-            "type": "integer",
-            "format": "default",
-            "description": "Number of users who contacted us."
-          },
-          {
-            "name": "signed up user",
-            "type": "number",
-            "format": "default",
-            "description": "Number of users who signed up."
-          }
-        ],
-        "missingValues": [
-          ""
-        ]
-      }
     }
   ],
   "readme": "# DataHub KPIs\n\n[![Build Status](https://travis-ci.org/datahq/datahub-kpis.svg?branch=master)](https://travis-ci.org/datahq/datahub-kpis)\n\nKey performance indicators for the DataHub project.\n\n## What does it do?\n\nThe script:\n- fetches reports from the Google Analytics;\n- fetches stats from NPM for `data-cli` package;\n- processes data and prints out KPIs.\n\n## Travis-CI and the schedule\n\nThe script is run on weekly basis on Travis-CI. For more information see `.travis.yml` file or visit current build page - https://travis-ci.org/datahq/datahub-kpis.\n\n## Output\n\nBelow is the sample result:\n\n```\n1554 - 00 - Total new users in the site\n  30 - 01 - Clicks on \"download\" from anywhere\n   6 - 02 - CLI downloads (from web)\n   1 - 03 - First run of the CLI\n   2 - 07 - Visit the showcase after push - method 1\n 186 - 99 - NPM installs\n```\n",
@@ -312,218 +312,11 @@
   ],
   "views": [
     {
-      "name": "deploy-funnel-1",
-      "title": "Deploy funnel KPIs as ratios of total new users",
-      "resources": [
-        {
-          "name": "deploy-funnel-weekly",
-          "transform": [
-            {
-              "type": "filter",
-              "expression": "Date.parse(data['date']) > Date.parse('2018-03-26')"
-            },
-            {
-              "type": "formula",
-              "expressions": [
-                "data['Clicks on download from anywhere'] / data['Total new users in the site'] * 100",
-                "data['CLI downloads (from web)'] / data['Total new users in the site'] * 100"
-              ],
-              "asFields": [
-                "Clicks on download page",
-                "CLI downloads (web)"
-              ]
-            }
-          ]
-        }
-      ],
-      "specType": "simple",
-      "spec": {
-        "type": "line",
-        "group": "date",
-        "series": [
-          "Clicks on download page",
-          "CLI downloads (web)"
-        ],
-        "ySuffix": "%"
-      }
-    },
-    {
-      "name": "deploy-funnel-2",
-      "title": "Deploy funnel KPIs as ratios of total new users",
-      "resources": [
-        {
-          "name": "deploy-funnel-weekly",
-          "transform": [
-            {
-              "type": "filter",
-              "expression": "Date.parse(data['date']) > Date.parse('2018-03-26')"
-            },
-            {
-              "type": "formula",
-              "expressions": [
-                "data['First run of the CLI'] / data['Total new users in the site'] * 100",
-                "data['First pushes from the CLI'] / data['Total new users in the site'] * 100",
-                "data['Visit the showcase after push - method 1'] / data['Total new users in the site'] * 100"
-              ],
-              "asFields": [
-                "First run",
-                "First push",
-                "Visit showcase after push"
-              ]
-            }
-          ]
-        }
-      ],
-      "specType": "simple",
-      "spec": {
-        "type": "line",
-        "group": "date",
-        "series": [
-          "First run",
-          "First push",
-          "Visit showcase after push"
-        ],
-        "ySuffix": "%"
-      }
-    },
-    {
-      "name": "downloads-page-clicks",
-      "title": "Clicks on 'Download' link (page) by new users",
-      "resources": [
-        {
-          "name": "deploy-funnel-weekly",
-          "transform": [
-            {
-              "type": "filter",
-              "expression": "Date.parse(data['date']) > Date.parse('2018-04-08')"
-            },
-            {
-              "type": "formula",
-              "expressions": [
-                "data['Clicks on download from anywhere'] / data['Total new users in the site'] * 100"
-              ],
-              "asFields": [
-                "clicks"
-              ]
-            }
-          ]
-        }
-      ],
-      "specType": "simple",
-      "spec": {
-        "type": "line",
-        "group": "date",
-        "series": [
-          "clicks"
-        ],
-        "ySuffix": " %"
-      }
-    },
-    {
-      "name": "cli-downloads",
-      "title": "CLI downloads by whom clicked on 'Download' link (page)",
-      "resources": [
-        {
-          "name": "deploy-funnel-weekly",
-          "transform": [
-            {
-              "type": "filter",
-              "expression": "Date.parse(data['date']) > Date.parse('2018-04-11')"
-            },
-            {
-              "type": "formula",
-              "expressions": [
-                "data['CLI downloads (from web)'] / data['Clicks on download from anywhere'] * 100"
-              ],
-              "asFields": [
-                "via web (download page)"
-              ]
-            }
-          ]
-        }
-      ],
-      "specType": "simple",
-      "spec": {
-        "type": "line",
-        "group": "date",
-        "series": [
-          "via web (download page)"
-        ],
-        "ySuffix": " %"
-      }
-    },
-    {
-      "name": "first-run-of-cli",
-      "title": "First run of the CLI by users who downloaded the tool",
-      "resources": [
-        {
-          "name": "deploy-funnel-weekly",
-          "transform": [
-            {
-              "type": "filter",
-              "expression": "Date.parse(data['date']) > Date.parse('2018-04-15')"
-            },
-            {
-              "type": "formula",
-              "expressions": [
-                "data['First run of the CLI'] / data['Total CLI downloads'] * 100"
-              ],
-              "asFields": [
-                "first run"
-              ]
-            }
-          ]
-        }
-      ],
-      "specType": "simple",
-      "spec": {
-        "type": "line",
-        "group": "date",
-        "series": [
-          "first run"
-        ],
-        "ySuffix": " %"
-      }
-    },
-    {
-      "name": "successful-pushes",
-      "title": "Successful / total pushes",
-      "resources": [
-        {
-          "name": "deploy-funnel-weekly",
-          "transform": [
-            {
-              "type": "filter",
-              "expression": "Date.parse(data['date']) > Date.parse('2018-04-21')"
-            },
-            {
-              "type": "formula",
-              "expressions": [
-                "data['Successful pushes from the CLI'] / data['Total pushes from the CLI'] * 100"
-              ],
-              "asFields": [
-                "Successful / total pushes"
-              ]
-            }
-          ]
-        }
-      ],
-      "specType": "simple",
-      "spec": {
-        "type": "line",
-        "group": "date",
-        "series": [
-          "Successful / total pushes"
-        ],
-        "ySuffix": " %"
-      }
-    },
-    {
       "name": "premium-data-offer-funnel-weekly",
       "title": "Premium data offer funnel - ratios to 'incoming user' (weekly data)",
       "resources": [
         {
-          "name": "premium-data-funnel-weekly",
+          "name": "premium-data-funnel-on-core-showcase-weekly",
           "transform": [
             {
               "type": "formula",
@@ -558,7 +351,7 @@
       "title": "Premium data offer funnel - 'engaged' and 'signed up' users ratios to 'interested user' (weekly data)",
       "resources": [
         {
-          "name": "premium-data-funnel-weekly",
+          "name": "premium-data-funnel-on-core-showcase-weekly",
           "transform": [
             {
               "type": "formula",
