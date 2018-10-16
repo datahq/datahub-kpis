@@ -3,6 +3,454 @@
   "title": "DataHub KPIs",
   "resources": [
     {
+      "path": "data/premium-data-funnel-overall-daily.csv",
+      "pathType": "local",
+      "name": "premium-data-funnel-overall-daily",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "ISO-8859-1",
+      "dialect": {
+        "delimiter": ",",
+        "quoteChar": "\""
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "date",
+            "type": "date",
+            "format": "default"
+          },
+          {
+            "name": "total users",
+            "type": "any",
+            "format": "default"
+          },
+          {
+            "name": "users on pages with premium offer",
+            "type": "any",
+            "format": "default"
+          },
+          {
+            "name": "users on showcase pages with premium offer",
+            "type": "any",
+            "format": "default"
+          },
+          {
+            "name": "users on core datasets",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on sports data",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on machine learning data",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on crypto data",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on s&p500 datasets",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on world bank datasets",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on unece datasets",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on search page",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on collections pages",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on dashboard page",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on pricing page",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "total clicks",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on showcase pages",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on core data",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on sports data",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on machine learning",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on cryptocurrency data",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on s-and-p-500-financial-data",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on world-bank data",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on unece data",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on search page",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on collections pages",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on dashboard page",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on pricing page",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "total submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "showcase page submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "core data submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "sports data submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "machine learning submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "crypto data submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "s&p 500 submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "world bank submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "unece submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "search page submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "collections pages submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "dashboard page submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "pricing page submissions",
+            "type": "number",
+            "format": "default"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
+      "path": "data/premium-data-funnel-overall-weekly.csv",
+      "pathType": "local",
+      "name": "premium-data-funnel-overall-weekly",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "ISO-8859-1",
+      "dialect": {
+        "delimiter": ",",
+        "quoteChar": "\""
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "date",
+            "type": "date",
+            "format": "default"
+          },
+          {
+            "name": "total users",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on pages with premium offer",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on showcase pages with premium offer",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on core datasets",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on sports data",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on machine learning data",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on crypto data",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on s&p500 datasets",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on world bank datasets",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on unece datasets",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on search page",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on collections pages",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on dashboard page",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "users on pricing page",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "total clicks",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on showcase pages",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on core data",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on sports data",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on machine learning",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on cryptocurrency data",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on s-and-p-500-financial-data",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on world-bank data",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on unece data",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on search page",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on collections pages",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on dashboard page",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "clicks on pricing page",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "total submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "showcase page submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "core data submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "sports data submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "machine learning submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "crypto data submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "s&p 500 submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "world bank submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "unece submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "search page submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "collections pages submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "dashboard page submissions",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "pricing page submissions",
+            "type": "number",
+            "format": "default"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
       "path": "data/premium-data-funnel-on-core-showcase-daily.csv",
       "pathType": "local",
       "name": "premium-data-funnel-on-core-showcase-daily",
@@ -311,6 +759,107 @@
     }
   ],
   "views": [
+    {
+      "name": "total-users-and-users-on-pages-with-premium-offer",
+      "title": "Total users and users on pages with premium offer",
+      "resources": ["premium-data-funnel-overall-weekly"],
+      "specType": "simple",
+      "spec": {
+        "type": "line",
+        "group": "date",
+        "series": [
+          "total users",
+          "users on pages with premium offer"
+        ]
+      }
+    },
+    {
+      "name": "kpi-1",
+      "title": "Visitors of pages with premium offer / total visitors",
+      "resources": [
+        {
+          "name": "premium-data-funnel-overall-weekly",
+          "transform": [
+            {
+              "type": "formula",
+              "expressions": [
+                "data['users on pages with premium offer'] * 100 / data['total users']"
+              ],
+              "asFields": [
+                "users on pages with premium offer ratio"
+              ]
+            }
+          ]
+        }
+      ],
+      "specType": "simple",
+      "spec": {
+        "type": "line",
+        "group": "date",
+        "series": [
+          "users on pages with premium offer ratio"
+        ],
+        "ySuffix": "%"
+      }
+    },
+    {
+      "name": "kpi-2",
+      "title": "Clicks on the offer / visitors of pages with premium offer",
+      "resources": [
+        {
+          "name": "premium-data-funnel-overall-weekly",
+          "transform": [
+            {
+              "type": "formula",
+              "expressions": [
+                "data['total clicks'] * 100 / data['users on pages with premium offer']"
+              ],
+              "asFields": [
+                "clicks on the offer ratio"
+              ]
+            }
+          ]
+        }
+      ],
+      "specType": "simple",
+      "spec": {
+        "type": "line",
+        "group": "date",
+        "series": [
+          "clicks on the offer ratio"
+        ],
+        "ySuffix": "%"
+      }
+    },
+    {
+      "name": "kpi-3",
+      "title": "Form submissions / clicks on the offer",
+      "resources": [
+        {
+          "name": "premium-data-funnel-overall-weekly",
+          "transform": [
+            {
+              "type": "formula",
+              "expressions": [
+                "data['total submissions'] * 100 / data['total clicks']"
+              ],
+              "asFields": [
+                "form submission ratio"
+              ]
+            }
+          ]
+        }
+      ],
+      "specType": "simple",
+      "spec": {
+        "type": "line",
+        "group": "date",
+        "series": [
+          "form submission ratio"
+        ],
+        "ySuffix": "%"
+      }
+    },
     {
       "name": "premium-data-offer-funnel-weekly",
       "title": "Premium data offer funnel - ratios to 'incoming user' (weekly data)",
