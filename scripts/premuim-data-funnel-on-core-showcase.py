@@ -174,15 +174,15 @@ def engaged_user():
 
 engaged_user()
 
-with open('data/premium-data-funnel-daily.csv', 'a', newline='') as csvfile:
+with open('data/premium-data-funnel-on-core-showcase-daily.csv', 'a', newline='') as csvfile:
     writer = csv.writer(csvfile, delimiter=',')
     writer.writerow(row)
 
 # Script for converting daily to weekly (last week):
-with open('data/premium-data-funnel-daily.csv', 'r') as daily:
+with open('data/premium-data-funnel-on-core-showcase-daily.csv', 'r') as daily:
     reader = csv.reader(daily)
     rows = [r for r in reader]
-    with open('data/premium-data-funnel-weekly.csv', 'a', newline='') as weekly:
+    with open('data/premium-data-funnel-on-core-showcase-weekly.csv', 'a', newline='') as weekly:
         writer = csv.writer(weekly, delimiter=',')
         weekly_row = [0] * 7
         for i in range(7):
