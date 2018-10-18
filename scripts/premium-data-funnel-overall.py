@@ -107,7 +107,7 @@ def print_response(response, funnel):
 analytics = initialize_analyticsreporting()
 
 today = DT.date.today()
-initial = today - DT.timedelta(days=7)
+initial = today - DT.timedelta(days=1)
 start_date = initial.strftime('%Y-%m-%d')
 end_date = start_date
 
