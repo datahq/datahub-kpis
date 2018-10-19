@@ -758,6 +758,11 @@
       "title": "Open Data Commons Public Domain Dedication and License"
     }
   ],
+  "sources": [
+    {
+      "title": "Google Analytics"
+    }
+  ],
   "views": [
     {
       "name": "total-users-and-users-on-pages-with-premium-offer",
