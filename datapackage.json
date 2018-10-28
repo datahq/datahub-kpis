@@ -817,10 +817,53 @@
             {
               "type": "formula",
               "expressions": [
-                "data['total clicks'] * 100 / data['users on pages with premium offer']"
+                "data['total clicks'] * 100 / data['users on pages with premium offer']",
+                "data['clicks on core data'] * 100 / data['users on core datasets']",
+                "data['clicks on sports data'] * 100 / data['users on sports data']"
               ],
               "asFields": [
-                "clicks on the offer ratio"
+                "Total clicks on the offer",
+                "Clicks on core data pages",
+                "Clicks on sports data pages"
+              ]
+            },
+            {
+              "type": "formula",
+              "expressions": [
+                "data['clicks on machine learning'] * 100 / data['users on machine learning data']",
+                "data['clicks on cryptocurrency data'] * 100 / data['users on crypto data']",
+                "data['clicks on s-and-p-500-financial-data'] * 100 / data['users on s&p500 datasets']"
+              ],
+              "asFields": [
+                "Clicks on machine learning pages",
+                "Clicks on crypto pages",
+                "Clicks on S&P500 pages"
+              ]
+            },
+            {
+              "type": "formula",
+              "expressions": [
+                "data['clicks on world-bank data'] * 100 / data['users on world bank datasets']",
+                "data['clicks on unece data'] * 100 / data['users on unece datasets']",
+                "data['clicks on search page'] * 100 / data['users on search page']"
+              ],
+              "asFields": [
+                "Clicks on world bank pages",
+                "Clicks on UNECE pages",
+                "Clicks on search page"
+              ]
+            },
+            {
+              "type": "formula",
+              "expressions": [
+                "data['clicks on collections pages'] * 100 / data['users on collections pages']",
+                "data['clicks on dashboard page'] * 100 / data['users on dashboard page']",
+                "data['clicks on pricing page'] * 100 / data['users on pricing page']"
+              ],
+              "asFields": [
+                "Clicks on collections pages",
+                "Clicks on dashboard page",
+                "Clicks on pricing page"
               ]
             }
           ]
@@ -831,7 +874,18 @@
         "type": "line",
         "group": "date",
         "series": [
-          "clicks on the offer ratio"
+          "Total clicks on the offer",
+          "Clicks on core data pages",
+          "Clicks on sports data pages",
+          "Clicks on machine learning pages",
+          "Clicks on crypto pages",
+          "Clicks on S&P500 pages",
+          "Clicks on world bank pages",
+          "Clicks on UNECE pages",
+          "Clicks on search page",
+          "Clicks on collections pages",
+          "Clicks on dashboard page",
+          "Clicks on pricing page"
         ],
         "ySuffix": "%"
       }
